@@ -1,0 +1,22 @@
+# Reaction / Adverse Event Analysis
+
+Generate an analysis of reported reactions based on the provided evidence.
+
+## Reaction Data
+- Top reactions reported (by frequency): {top_reactions}
+- Total unique reactions: {unique_reaction_count}
+- Top serious reactions: {top_serious_reactions}
+
+## Outcomes Associated with Reactions
+{outcomes_list}
+
+## Your Task
+Write 2-3 paragraphs that:
+1. Describe the most frequently reported reactions
+2. Note the outcomes associated with reactions (recoveries, ongoing, etc.)
+3. Compare serious vs. non-serious reaction distribution if meaningful
+4. Do NOT claim expectedness or product label alignment
+5. Do NOT infer causality or clinical significance
+6. Do NOT suggest these reactions are unexpected or expected
+
+Maintain neutral, factual tone. Base all statements on the evidence provided.

@@ -1,0 +1,30 @@
+# Trends and Important Observations
+
+Generate analysis of temporal and geographic patterns.
+
+## Temporal Data
+- Monthly case volumes: {monthly_trends}
+- Peak reporting month: {peak_month}
+- Lowest reporting month: {low_month}
+
+## Reaction Trends by Month
+{reaction_trends}
+
+## Geographic Data
+- Cases by country: {countries_distribution}
+- Primary reporting countries: {primary_countries}
+
+## Key Observations
+{observations}
+
+## Your Task
+Write 2-3 paragraphs that:
+1. Describe temporal patterns in case reporting (monthly volume, trends)
+2. Note geographic concentrations
+3. Describe only the month-to-month changes listed under Key Observations
+4. Do NOT calculate additional differences or percentages
+5. Do NOT over-interpret small fluctuations
+6. Do NOT claim these represent safety signals
+7. Do NOT suggest causality for reporting volume changes
+
+Keep language conservative and data-driven. Only describe what the numbers show.

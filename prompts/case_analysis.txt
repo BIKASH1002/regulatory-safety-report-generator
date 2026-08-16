@@ -1,0 +1,31 @@
+# Summary Analysis of Cases
+
+Generate a structured analysis of case-level metrics based on the provided evidence.
+
+## Case Metrics
+- Total rows in dataset: {total_rows}
+- Unique cases (by safetyreportid): {unique_cases}
+- Duplicate report rows: {duplicate_rows}
+- Serious cases: {serious_cases}
+- Non-serious cases: {non_serious_cases}
+- Unknown seriousness: {unknown_seriousness}
+- Serious percentage: {serious_percentage}%
+
+## Demographics
+- Sex distribution: {sex_distribution}
+- Age distribution: {age_distribution}
+
+## Reporting Dates
+- Earliest report received: {min_date}
+- Latest report received: {max_date}
+
+## Your Task
+Summarize these metrics in 2-3 paragraphs that:
+1. Explain the distinction between total rows and unique cases
+2. Describe the serious/non-serious/unknown breakdown
+3. Note demographic patterns (age, sex)
+4. Mention the span of the reporting period
+5. Do NOT interpret medical significance
+6. Do NOT claim trends or causality
+
+Use clear language suitable for a regulatory audience.

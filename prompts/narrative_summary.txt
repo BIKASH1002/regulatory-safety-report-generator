@@ -1,0 +1,25 @@
+# Narrative Summary and Analysis
+
+Generate a brief opening narrative (3-4 paragraphs) that summarizes the safety profile of the product based on the supplied evidence.
+
+## Reporting Period
+{reporting_period}
+
+## Approved Evidence
+- Total unique cases: {total_cases}
+- Serious cases: {serious_cases} ({serious_percentage}%)
+- Non-serious cases: {non_serious_cases}
+- Reporting period span: {period_start} to {period_end}
+- Most frequent reactions: {top_reactions}
+- Geographic distribution: primarily {primary_countries}
+
+## Your Task
+Write a concise narrative that:
+1. Describes the volume and nature of reports received during the period
+2. Notes the proportion classified as serious
+3. Identifies the most commonly reported reactions
+4. Acknowledges geographic or temporal patterns in the data
+5. Does NOT claim safety signals, causality, or product efficacy
+6. Does NOT reference unavailable data (e.g., SOC, expectedness, clinical outcomes)
+
+Keep tone neutral and regulatory. Reference only the evidence above.

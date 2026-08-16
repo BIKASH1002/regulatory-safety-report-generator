@@ -1,0 +1,26 @@
+# Serious Cases / 15-Day Alerts
+
+Generate analysis of serious cases and expedited case handling.
+
+## Serious Case Data
+- Total serious cases: {serious_cases}
+- Serious percentage: {serious_percentage}%
+- Serious reaction breakdown: {serious_reactions}
+
+## Expedited / 15-Day Alert Cases
+- Cases meeting expedited criteria: {expedited_count}
+- Expedited percentage: {expedited_percentage}%
+
+## Key Findings
+{serious_findings}
+
+## Your Task
+Write 2-3 paragraphs that:
+1. Summarize the proportion and nature of serious cases
+2. Describe the types of reactions associated with serious cases
+3. Note the number and proportion of cases meeting expedited/15-day criteria
+4. Do NOT claim these represent established safety signals
+5. Do NOT suggest causality or product-disease relationships
+6. Do NOT make clinical recommendations
+
+Frame serious cases as important for surveillance, not as proof of harm.
