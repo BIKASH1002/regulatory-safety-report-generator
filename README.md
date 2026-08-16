@@ -23,17 +23,15 @@ cp .env.example .env
 Set the key in `.env`:
 
 ```dotenv
-GEMINI_API_KEY=your_api_key
+GEMINI_API_KEY=your_gemini_api_key
 ```
-
-`.env` is ignored by Git and must never be included in the submission ZIP.
 
 ## Run the report
 
 ```bash
 python -m src.main \
   dataset/Bisoprolol_icsr_sample_1068rows.xlsx \
-  --phase 4 \
+  --operation generate-report \
   --output report_output.md
 ```
 
@@ -51,19 +49,23 @@ Tests use mocked Gemini responses and do not require paid API calls:
 
 ```bash
 python -m pytest -W error
+
+or
+
+pytest
 ```
 
 ## Other CLI operations
 
 ```bash
 # Load, validate, and profile
-python -m src.main <dataset.xlsx> --phase 1
+python -m src.main <dataset.xlsx> --operation profile-data
 
 # Produce deterministic evidence as JSON
-python -m src.main <dataset.xlsx> --phase 2
+python -m src.main <dataset.xlsx> --operation generate-evidence
 
 # Generate and ground sections without report review/assembly
-python -m src.main <dataset.xlsx> --phase 3
+python -m src.main <dataset.xlsx> --operation generate-sections
 ```
 
 ## Architecture
@@ -189,6 +191,7 @@ A future report-type configuration would declare:
 For example, PSUR and PBRER could reuse case counts, demographics, reaction frequencies, outcomes, and temporal trends while adding benefit-risk and cumulative-exposure evidence. DSUR could reuse safety analyses while adding development-program and study evidence. CSR could select study-level analyses and section templates without changing the grounding or review components.
 
 The proposed configuration, versioning, evidence tracing, and scaled-evaluation design is documented in `version1/design.md`.
+
 ## Limitations
 
 - Numerical grounding does not guarantee complete semantic faithfulness.
@@ -197,33 +200,3 @@ The proposed configuration, versioning, evidence tracing, and scaled-evaluation 
 - Only a PADER-style Version 0 report is implemented.
 - There is no production authentication, audit database, job queue, or deployment infrastructure.
 - SOC, expectedness, causal assessment, and regulatory actions cannot be derived from the supplied sources.
-
-## Submission packaging
-
-Include:
-
-```text
-src/
-prompts/
-tests/
-version1/design.md
-README.md
-architecture.md
-report_output.md
-requirements.txt
-.env.example
-```
-
-Exclude:
-
-```text
-.env
-venv/
-.pytest_cache/
-.benchmarks/
-__pycache__/
-*.pyc
-dataset/
-quickhire prompt.docx
-local development notes and temporary files
-```

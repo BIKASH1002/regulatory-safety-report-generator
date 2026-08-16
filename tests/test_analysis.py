@@ -1,4 +1,4 @@
-"""Tests for Phase 2 analysis functions."""
+"""Tests for deterministic safety analysis functions."""
 
 from pathlib import Path
 import pandas as pd

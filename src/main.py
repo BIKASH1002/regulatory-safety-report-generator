@@ -85,7 +85,7 @@ def generate_reviewed_report(
 
     return {
         "success": True,
-        "phase": 4,
+        "operation": "generate-report",
         "report_path": str(report_path),
         "review": review_results,
         "evaluation": evaluate_report(generated_sections, validation_results, review_results),
@@ -100,11 +100,15 @@ def main():
     )
     parser.add_argument("dataset_path", help="Path to an XLSX or CSV dataset")
     parser.add_argument(
-        "--phase",
-        type=int,
-        choices=[1, 2, 3, 4],
-        default=1,
-        help="1=profiling, 2=analysis, 3=Gemini generation, 4=reviewed Markdown report",
+        "--operation",
+        choices=[
+            "profile-data",
+            "generate-evidence",
+            "generate-sections",
+            "generate-report",
+        ],
+        default="profile-data",
+        help="Processing operation to perform (default: profile-data)",
     )
     parser.add_argument(
         "--output",
@@ -123,25 +127,25 @@ def main():
         print(json.dumps({"error": error}))
         return 1
 
-    if arguments.phase == 1:
+    if arguments.operation == "profile-data":
         profile, error = profile_dataset(validated_frame)
-        command_result = {"success": True, "phase": 1, "profile": profile}
-    elif arguments.phase == 2:
+        command_result = {"success": True, "operation": "profile-data", "profile": profile}
+    elif arguments.operation == "generate-evidence":
         evidence, error = generate_evidence(validated_frame)
-        command_result = {"success": True, "phase": 2, "evidence": evidence}
+        command_result = {"success": True, "operation": "generate-evidence", "evidence": evidence}
     else:
         client, error = initialize_client()
         if error:
             print(json.dumps({"error": error}))
             return 1
 
-        if arguments.phase == 3:
+        if arguments.operation == "generate-sections":
             evidence, error = generate_evidence(validated_frame)
             if not error:
                 generated_sections, validation_results = generate_grounded_sections(evidence, client)
                 command_result = {
                     "success": True,
-                    "phase": 3,
+                    "operation": "generate-sections",
                     "evidence": evidence,
                     "generated_sections": generated_sections,
                     "grounding_validation": validation_results,
